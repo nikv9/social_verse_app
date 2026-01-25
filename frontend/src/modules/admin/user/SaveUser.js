@@ -63,14 +63,15 @@ const SaveUser = () => {
   useEffect(() => {
     if (userState.success) {
       if (!userId) {
-        setFormData(
+        setFormData((prev) =>
           Object.fromEntries(
-            Object.keys(formData).map((key) => [
+            Object.keys(prev).map((key) => [
               key,
               key === "profileImg" ? null : "",
-            ])
-          )
+            ]),
+          ),
         );
+
         toast.success(userState.success);
       } else if (isNotAdmin) {
         toast.success(userState.success);
@@ -81,7 +82,7 @@ const SaveUser = () => {
       }
       dispatch(clrUserStateMsg());
     }
-  }, [dispatch, userState.success, userId, navigate]);
+  }, [dispatch, userState.success, userId, navigate, isNotAdmin]);
 
   useEffect(() => {
     if (userId) {

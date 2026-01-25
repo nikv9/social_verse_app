@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import CancelIcon from "@mui/icons-material/Cancel";
 import AddToPhotosIcon from "@mui/icons-material/AddToPhotos";
 import { useDispatch, useSelector } from "react-redux";
-import { createPostAction, getPostsAction } from "../../redux/post_store";
+import { createPostAction } from "../../redux/post_store";
 import Spinner from "../../components/Spinner";
 
 const CreatePostModal = (props) => {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import UserList from "../../modules/admin/user/UserList";
 import { useDispatch } from "react-redux";
@@ -22,7 +22,7 @@ const Users = () => {
         isAdmin: "true",
         userName: updatedFilters.userName,
         sortType: updatedFilters.sortType,
-      })
+      }),
     );
   };
 

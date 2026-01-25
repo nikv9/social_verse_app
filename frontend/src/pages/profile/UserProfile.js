@@ -39,12 +39,12 @@ const UserProfile = () => {
   useEffect(() => {
     const initializeProfile = async () => {
       await dispatch(
-        getUserAction({ isOtherProfile: isOtherProfile, userId: params.id })
+        getUserAction({ isOtherProfile: isOtherProfile, userId: params.id }),
       );
       await dispatch(getUserPostsAction(params.id));
     };
     initializeProfile();
-  }, [dispatch, params.id]);
+  }, [dispatch, params.id, isOtherProfile]);
 
   const sendFollowReq = async (targetUserId) => {
     setIsLoading(true);
@@ -52,10 +52,10 @@ const UserProfile = () => {
       sendFollowReqAction({
         loggedinUserId: authState.user._id,
         targetUserId,
-      })
+      }),
     );
     await dispatch(
-      getUserAction({ isOtherProfile: isOtherProfile, userId: params.id })
+      getUserAction({ isOtherProfile: isOtherProfile, userId: params.id }),
     );
     setIsLoading(false);
   };
@@ -67,10 +67,10 @@ const UserProfile = () => {
         loggedinUserId: authState.user._id,
         targetUserId,
         action,
-      })
+      }),
     );
     await dispatch(
-      getUserAction({ isOtherProfile: isOtherProfile, userId: params.id })
+      getUserAction({ isOtherProfile: isOtherProfile, userId: params.id }),
     );
     setIsLoading(false);
   };
@@ -112,7 +112,7 @@ const UserProfile = () => {
                   </button>
                 </div>
               ) : userState.user?.followers.some(
-                  (u) => u._id === authState.user._id
+                  (u) => u._id === authState.user._id,
                 ) ? (
                 <button
                   className="globalBtn err_bg mt-5"
@@ -127,7 +127,7 @@ const UserProfile = () => {
                   )}
                 </button>
               ) : userState.user?.followReqsReceived?.includes(
-                  authState.user._id
+                  authState.user._id,
                 ) ? (
                 <button className="globalBtn bg-gray-300 !text-gray-700 mt-5 !cursor-default">
                   Follow Request Sent

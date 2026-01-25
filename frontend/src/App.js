@@ -41,7 +41,7 @@ const App = () => {
         const intervalId = setTimeout(() => {
           if (decodedToken.exp < Date.now() / 1000) {
             alert(
-              '"Oops! It looks like your session has expired. Please login again.'
+              '"Oops! It looks like your session has expired. Please login again.',
             );
             dispatch(logoutAction());
           }
@@ -53,7 +53,7 @@ const App = () => {
       }
     };
     initializeApp();
-  }, []);
+  }, [dispatch, navigate]);
 
   useEffect(() => {
     if (auth?.user?._id) {
