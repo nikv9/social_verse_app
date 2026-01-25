@@ -17,9 +17,10 @@ const ForgotPass = (props) => {
   };
 
   useEffect(() => {
-    const { error, success } = authState;
-    if (error || success) {
-      toast[error ? "error" : "success"](error || success);
+    if (authState.error || authState.success) {
+      toast[authState.error ? "error" : "success"](
+        authState.error || authState.success,
+      );
       dispatch(clrAuthStateMsg());
     }
   }, [authState.error, authState.success, dispatch]);
