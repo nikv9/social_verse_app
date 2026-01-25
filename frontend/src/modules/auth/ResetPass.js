@@ -22,11 +22,12 @@ const ResetPass = (props) => {
   };
 
   useEffect(() => {
-    const { error, success } = authState;
-    if (error || success) {
-      toast[error ? "error" : "success"](error || success);
+    if (authState.error || authState.success) {
+      toast[authState.error ? "error" : "success"](
+        authState.error || authState.success,
+      );
       dispatch(clrAuthStateMsg());
-      success && navigate("/login");
+      if (authState.success) navigate("/login");
     }
   }, [authState.error, authState.success, dispatch, navigate]);
 
