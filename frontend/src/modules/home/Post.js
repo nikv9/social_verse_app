@@ -4,7 +4,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import moment from "moment";
 import { useDispatch, useSelector } from "react-redux";
-import { getPostsAction, likeDislikePostAction } from "../../redux/post_store";
+import { likeDislikePostAction } from "../../redux/post_store";
 import Spinner from "../../components/Spinner";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { toast } from "react-toastify";
@@ -24,7 +24,7 @@ const Post = (props) => {
         postId: props.post._id,
         userId: auth.user._id,
         action,
-      })
+      }),
     );
   };
 

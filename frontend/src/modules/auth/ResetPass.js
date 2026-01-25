@@ -28,7 +28,7 @@ const ResetPass = (props) => {
       dispatch(clrAuthStateMsg());
       success && navigate("/login");
     }
-  }, [authState.error, authState.success, dispatch]);
+  }, [authState.error, authState.success, dispatch, navigate]);
 
   return (
     <div className="p-4 bg-white shadow-md w-[25rem]">

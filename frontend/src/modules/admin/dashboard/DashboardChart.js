@@ -8,7 +8,6 @@ import { getAllUsersAndPostsAction } from "../../../redux/user_store";
 Chart.register(...registerables);
 
 const DashboardChart = () => {
-  const postState = useSelector((state) => state.post);
   const userState = useSelector((state) => state.user);
   const pieChartRef = useRef(null);
   const barChartRef = useRef(null);
@@ -89,7 +88,7 @@ const DashboardChart = () => {
       for (let i = 0; i < 12; i++) {
         const month = new Date(today.getFullYear(), today.getMonth() - i, 1);
         months.unshift(
-          month.toLocaleString("default", { month: "long", year: "numeric" })
+          month.toLocaleString("default", { month: "long", year: "numeric" }),
         );
       }
 
