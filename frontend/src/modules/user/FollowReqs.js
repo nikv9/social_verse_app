@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  sendFollowReqAction,
   getFollowReqsAction,
   clrUserStateMsg,
   respondFollowReqAction,
@@ -31,7 +30,7 @@ const FollowReqs = (props) => {
         loggedinUserId: authState.user._id,
         targetUserId,
         action,
-      })
+      }),
     );
     await dispatch(getFollowReqsAction(authState.user._id));
     setIsLoading(false);
