@@ -67,7 +67,7 @@ export const getPostsAction = (data) => async (dispatch) => {
     dispatch(actionStart({ loadingType: "getPosts" }));
     const res = await postService.getPosts(data);
     dispatch(
-      actionSuccess({ posts: res, success: "Posts fetched successfully!" })
+      actionSuccess({ posts: res, success: "Posts fetched successfully!" }),
     );
     return res;
   } catch (error) {
@@ -102,7 +102,7 @@ export const likeDislikePostAction = (data) => async (dispatch, getState) => {
           ...existing,
           posts: updatedPosts,
         },
-      })
+      }),
     );
 
     await postService.likeDislikePost(data);
@@ -114,7 +114,7 @@ export const likeDislikePostAction = (data) => async (dispatch, getState) => {
 export const deletePostAction = (data) => async (dispatch) => {
   try {
     dispatch(actionStart({ loadingType: "deletePost" }));
-    const res = await postService.deletePost(data);
+    await postService.deletePost(data);
     dispatch(actionSuccess({ success: "Post deleted successfully!" }));
   } catch (error) {
     dispatch(actionFailure(error.response?.data?.msg));

@@ -47,7 +47,7 @@ const ChatList = () => {
 
   useEffect(() => {
     dispatch(getChatsThunk(authState.user._id));
-  }, []);
+  }, [dispatch, authState.user?._id]);
 
   useEffect(() => {
     socket.on("chatUpdated", (chat) => {
@@ -55,7 +55,7 @@ const ChatList = () => {
     });
 
     return () => socket.off("chatUpdated");
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="sticky top-16 overflow-y-scroll h-[calc(100vh-4rem)]">
