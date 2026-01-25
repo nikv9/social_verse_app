@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  /* font-family: "Source Code Pro", monospace; */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+:root {
+  --themeBg: #ffffff;
+  --themeText: #111;
+}
+
+html.dark {
+  --themeBg: #082329;
+  --themeText: #fff;
+}
+
+body {
+  background-color: #fff;
+  color: #000;
+  letter-spacing: 0.03rem;
+}
+html.dark body {
+  background-color: #082329;
+  color: #fff;
+}
+
+.darkBg {
+  background-color: #082329 !important;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotateZ(-360deg);
+  }
+}
+
+.primary_clr {
+  color: #1b49e1;
+}
+
+.primary_bg {
+  background-color: #1b49e1;
+}
+
+.err_clr {
+  color: #dc143c;
+  /* color: #008080; */
+}
+
+.err_bg {
+  background-color: #dc143c;
+}
+
+.success_clr {
+  color: #008000;
+}
+
+.success_bg {
+  background-color: #008000;
+}
+
+.globalBtn {
+  padding: 0.4rem 0.7rem;
+  outline: none;
+  cursor: pointer;
+  border-radius: 0.2rem;
+  letter-spacing: 0.02rem;
+  transition: 0.3s ease;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+::-webkit-scrollbar {
+  width: 0.3rem;
+}
+
+::-webkit-scrollbar-track {
+  background: #e7e7e7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(200, 200, 200);
+  border-radius: 0.3rem;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
+  -webkit-text-fill-color: #000 !important;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+html.dark input:-webkit-autofill,
+html.dark input:-webkit-autofill:hover,
+html.dark input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px #082329 inset !important;
+  -webkit-text-fill-color: #fff !important;
+}
+
+html.dark .MuiDataGrid-row,
+html.dark .MuiDataGrid-columnHeaders > div,
+html.dark .MuiDataGrid-footerContainer,
+html.dark .MuiTablePagination-root,
+html.dark .MuiTablePagination-toolbar svg {
+  background-color: #082329 !important;
+  color: #fff !important;
+}
+
+/* media queries  */
+@media (max-width: 900px) {
+  .menubarContainer,
+  .headerOptsContainer {
+    display: none !important;
+  }
+
+  .hamburger {
+    display: block !important;
+  }
+}
+
+@media (min-width: 900px) {
+  .hamburger {
+    display: none !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .profileInfoContainer {
+    flex-direction: column;
+    gap: 0rem;
+    align-items: center;
+  }
+
+  .profileImg{
+    height: 6rem;
+    width: 6rem;
+  }
+
+  .profileDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profileTabContainer {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .createPostModalBox {
+    width: 18rem;
+  }
+}
